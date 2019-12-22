@@ -4,8 +4,8 @@ services:
   - docker
 
 before-install:
-- docker build . -t pyGhost:v1.0
-- docker run -ti pyGhost:v1.0 "cd /app; pytest; flake8"
+- docker build . -t pyghost:v1.0
+- docker run -ti pyghost:v1.0 "cd /app; pytest; flake8"
 
 script:
   - pytest && flake*
