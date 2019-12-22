@@ -6,9 +6,10 @@ COPY ./requirements.txt /app/
 WORKDIR /app
 COPY . /app
 
-RUN apk update
-RUN apk upgrade
-RUN apk build-dep python-pygame
-RUN apk install python-dev
+RUN apk add --update \
+    python \
+    python-dev \
+    build-base \
+    build-dep
 
 RUN pip install -r requirements.txt
