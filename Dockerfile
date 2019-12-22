@@ -6,8 +6,9 @@ COPY ./requirements.txt /app/
 WORKDIR /app
 COPY . /app
 
-RUN apt-get update
-RUN apt-get build-dep python-pygame
-RUN apt-get install python-dev
+RUN apk update
+RUN apk upgrade
+RUN apk build-dep python-pygame
+RUN apk install python-dev
 
 RUN pip install -r requirements.txt
