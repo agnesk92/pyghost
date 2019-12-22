@@ -1,2 +1,8 @@
 language: python
 dist: xenial
+
+notifications:
+  email: agi.uqbar@gmail.com
+
+
+
