@@ -9,7 +9,6 @@ COPY . /app
 RUN apk add --update \
     python \
     python-dev \
-    build-base \
-    python-pygame
+    build-base
 
 RUN pip install -r requirements.txt
