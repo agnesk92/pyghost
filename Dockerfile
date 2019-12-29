@@ -10,5 +10,6 @@ RUN apk add --update \
     python \
     python-dev \
     build-base
+RUN apk add --virtual python-pygame
 
 RUN pip install -r requirements.txt
