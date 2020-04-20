@@ -24,9 +24,12 @@ docker build . -t pyghost-ubuntu:v1.0
 docker run -it pyghost-ubuntu:v1.0 sh
 docker run -it pyghost-ubuntu:v1.0 bash
 
+# Linux setups - might need for host display access
+# If needed for display env var: ip route list | grep default
+xhost +local:docker
+
 # For GUI apps, use the host's X11 server and DISPLAY
-docker run -idt -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix pyghost-ubuntu:v1.0 bash
-docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:rw pyghost-ubuntu:v1.0 bash
+docker run --env DISPLAY=unix$DISPLAY --volume $XAUTH:/root/.Xauthority --volume /tmp/.X11-unix:/tmp/.X11-unix --rm -it pyghost-ubuntu:v1.0 bash
 
 docker exec -it pyghost-ubuntu:v1.0 bash
 ```

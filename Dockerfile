@@ -9,6 +9,9 @@ MAINTAINER Agnes Kis
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install vim -y
 
+# For x11
+RUN apt-get install -qqy x11-apps
+
 # Get Python 3.7.5
 # ref: https://askubuntu.com/questions/682869/how-do-i-install-a-different-python-version-using-apt-get
 #RUN apt-get install -y build-essential checkinstall
@@ -46,12 +49,3 @@ RUN pip3.7 install -r requirements.txt
 # Change from root user for security reasons
 RUN useradd -m -U -s /bin/bash pygame
 USER pygame
-
-# Old stuff
-#RUN apt install python3.7
-#RUN apt install python3-pip -y
-# /usr/lib/python3
-#RUN /usr/bin/python3.7 -V
-#RUN /usr/bin/pip3 -V
-#RUN pip install --upgrade pip
-#RUN pip install -r requirements.txt
