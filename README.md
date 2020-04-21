@@ -29,6 +29,7 @@ docker run -it pyghost-ubuntu:v1.0 bash
 xhost +local:docker
 
 # For GUI apps, use the host's X11 server and DISPLAY
+# https://stackoverflow.com/questions/28392949/running-chromium-inside-docker-gtk-cannot-open-display-0
 docker run --env DISPLAY=unix$DISPLAY --volume $XAUTH:/root/.Xauthority --volume /tmp/.X11-unix:/tmp/.X11-unix --rm -it pyghost-ubuntu:v1.0 bash
 
 docker exec -it pyghost-ubuntu:v1.0 bash

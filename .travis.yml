@@ -5,11 +5,13 @@ services:
 
 before-install:
 - docker build . -t pyghost:v1.0
-- docker run -ti pyghost:v1.0 "pytest"
-#- docker run -ti pyghost:v1.0 "cd /app; pytest; flake8"
+#- docker run -ti pyghost:v1.0 "pytest"
+- docker run -ti pyghost:v1.0 bash
+#- docker run -ti pyghost:v1.0 "pwd; cd /app; pytest; flake8"
 
 script:
-  - pytest && flake*
+  - pytest && flake8
+#  - pytest && flake8
 
 notifications:
   email: agi.uqbar@gmail.com
