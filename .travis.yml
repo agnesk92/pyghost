@@ -1,9 +1,11 @@
 language: python
+os: linux
+dist: xenial
 
 services:
   - docker
 
-before-install:
+before_install:
   - docker build . -t pyghost:v1.0
   - docker run -ti pyghost:v1.0 "pwd; cd /app; pytest; flake8"
   #- docker run -ti pyghost:v1.0 bash
