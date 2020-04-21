@@ -7,9 +7,10 @@ services:
 
 before_install:
   - docker build . -t pyghost:v1.0
-  - docker run -ti pyghost:v1.0 "pwd; cd /app; pytest; flake8"
+  - docker run -ti pyghost:v1.0 "cd /app; pytest; flake8"
   #- docker run -ti pyghost:v1.0 bash
   #- docker run -ti pyghost:v1.0 "pytest"
+  #- screenfetch
 
 script:
   - pytest && flake8
