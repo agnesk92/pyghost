@@ -11,13 +11,14 @@ services:
 
 before_install:
   - docker build . -t pyghost:v1.0
-  #- docker run -ti pyghost:v1.0 pytest
-  - docker run -ti pyghost:v1.0 bash
+  - docker run -ti pyghost:v1.0 screenfetch
   - apt-get install screenfetch
   - screenfetch
 
-script:
-  - pytest
+jobs:
+  include:
+    - name: Run Python Tests
+      script: docker run -ti pyghost:v1.0 pytest
 
 notifications:
   email: agi.uqbar@gmail.com

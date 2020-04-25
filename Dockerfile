@@ -25,6 +25,7 @@ RUN apt-get -y install tzdata
 RUN apt-get install -y libssl-dev openssl zlib1g-dev
 RUN apt-get install -y build-essential checkinstall
 RUN apt-get install -y wget
+RUN apt-get install -y screenfetch
 
 # Get the spec. Python version
 WORKDIR /usr/src
