@@ -1,19 +1,23 @@
 language: python
+python: "3.7.5"
 os: linux
 dist: xenial
+
+# To override installing requirements always
+install: pip --version
 
 services:
   - docker
 
 before_install:
   - docker build . -t pyghost:v1.0
-  - docker run -ti pyghost:v1.0 pytest
-  #- docker run -ti pyghost:v1.0 bash
-  #- docker run -ti pyghost:v1.0 "pytest"
-  #- screenfetch
+  #- docker run -ti pyghost:v1.0 pytest
+  - docker run -ti pyghost:v1.0 bash
+  - apt-get install screenfetch
+  - screenfetch
 
 script:
-  - pytest && flake8
+  - pytest
 
 notifications:
   email: agi.uqbar@gmail.com
