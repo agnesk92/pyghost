@@ -6,7 +6,7 @@ from pyGhost.player import Player
 
 # Initialize and create the screen
 pygame.init()
-SCREEN = pygame.display.set_mode((800, 600))
+SCREEN = pygame.display.set_mode((1400, 800))
 
 # Title and icon
 pygame.display.set_caption('pyGhost')
@@ -14,25 +14,34 @@ ICON = pygame.image.load('pyGhost/icons/map.png')
 pygame.display.set_icon(ICON)
 
 # Consts
-DISTANCE = 0.3
+DISTANCE = 0.8
+
+# Objects
+pink_castle = pygame.image.load('pyGhost/icons/castle_pink.png')
+grey_castle = pygame.image.load('pyGhost/icons/castle_grey.png')
+castle = pygame.image.load('pyGhost/icons/castle.png')
 
 
 def show_object(obj, position):
     SCREEN.blit(obj, position)
 
 
-def main():
+def run_game():
     """ Main function """
     player = Player()
 
+    # Game loop
     player_x_change = 0
     player_y_change = 0
-
-    # Game loop
     running = True
     while running:
         # Background color set
         SCREEN.fill((0, 0, 0))
+
+        # show_object(grey_castle, (100, 100))
+        # show_object(pink_castle, (820, 500))
+        # show_object(pink_castle, (920, 300))
+        # show_object(castle, (600, 90))
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -62,4 +71,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run_game()
