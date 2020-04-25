@@ -8,6 +8,10 @@ class TestGhostGame(unittest.TestCase):
         self.assertTrue(True)
 
 
+    def test_second_testcase(self):
+        self.assertTrue(True)
+
+
 if __name__ == '__main__':
     unittest.main()
 
