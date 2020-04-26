@@ -21,11 +21,11 @@ RUN apt-get install -qqy x11-apps
 # Dependencies
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y install tzdata
-#8 (europe), 11 (bp)
 RUN apt-get install -y libssl-dev openssl zlib1g-dev
 RUN apt-get install -y build-essential checkinstall
-RUN apt-get install -y wget
-RUN apt-get install -y screenfetch
+RUN apt-get install -y wget screenfetch
+# For _ctypes
+RUN apt-get install -y libffi-dev
 
 # Get the spec. Python version
 WORKDIR /usr/src

@@ -1,4 +1,5 @@
 import pygame
+import numpy as np
 
 from pyGhost.player import Player
 from pyGhost.room import Room
@@ -46,10 +47,10 @@ class Game:
 
             self.room.show_room()
 
-            show_object(grey_castle, (100, 100))
-            show_object(pink_castle, (820, 500))
-            show_object(pink_castle, (920, 300))
-            show_object(castle, (600, 90))
+            # show_object(grey_castle, (100, 100))
+            # show_object(pink_castle, (820, 500))
+            # show_object(pink_castle, (920, 300))
+            # show_object(castle, (600, 90))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -71,7 +72,7 @@ class Game:
                     if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                         player_y_change = 0
 
-            self.player.move(player_x_change, player_y_change)
+            self.player.move(player_x_change, player_y_change, self.room.walls)
             show_object(self.player.figure, self.player.position)
 
             pygame.display.update()

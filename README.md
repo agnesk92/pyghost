@@ -19,6 +19,8 @@ sudo usermod -aG docker $USER
 ```bash 
 # Build dockerfile
 docker build . -t pyghost-ubuntu:v1.0
+# Clean build
+docker build --no-cache . -t pyghost-ubuntu:v1.0
 
 # Depending on the OS you are using sh or bash ..
 docker run -it pyghost-ubuntu:v1.0 sh
@@ -32,7 +34,7 @@ xhost +local:docker
 # https://stackoverflow.com/questions/28392949/running-chromium-inside-docker-gtk-cannot-open-display-0
 docker run --env DISPLAY=unix$DISPLAY --volume $XAUTH:/root/.Xauthority --volume /tmp/.X11-unix:/tmp/.X11-unix --rm -it pyghost-ubuntu:v1.0 bash
 docker run --env DISPLAY=unix$DISPLAY --volume $XAUTH:/root/.Xauthority --volume /tmp/.X11-unix:/tmp/.X11-unix --volume `pwd`:/app --rm -it pyghost-ubuntu:v1.0 bash
-docker run -e DISPLAY=unix$DISPLAY -v $XAUTH:/root/.Xauthority -v /tmp/.X11-unix:/tmp/.X11-unix -v `pwd`:/app --rm -it pyghost-ubuntu:v1.0 bash
+
 
 docker exec -it pyghost-ubuntu:v1.0 bash
 ```

@@ -16,3 +16,7 @@ class Wall(pygame.sprite.Sprite):
         # self.figure = pygame.image.load('pyGhost/icons/wall.png')
         self.figure = pygame.image.load('pyGhost/icons/wall.png')
         # self.rect = self.figure.get_rect()
+
+    @property
+    def figure_rect(self):
+        return self.figure.get_rect(topleft = (self.x, self.y))
