@@ -1,0 +1,32 @@
+language: python
+python: "3.7.5"
+os: linux
+dist: xenial
+
+# To override installing requirements always
+install: pip --version
+
+services:
+  - docker
+
+before_install:
+  - docker load -i docker_images/images.tar || true
+  - docker build . -t pyghost:v1.0
+  - docker run -ti pyghost:v1.0 screenfetch
+  - sudo apt-get install screenfetch
+  - screenfetch
+
+jobs:
+  include:
+    - name: Run Python Tests
+      script: docker run -ti pyghost:v1.0 pytest
+
+cache:
+  directories:
+  - docker_images
+
+before_cache:
+- docker save -o docker_images/images.tar $(docker images -a -q)
+
+notifications:
+  email: agi.uqbar@gmail.com
