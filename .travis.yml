@@ -14,7 +14,6 @@ before_install:
   - docker run -ti pyghost:v1.0 screenfetch
   - sudo apt-get install screenfetch
   - screenfetch
-  - pip install coverage
 
 jobs:
   include:

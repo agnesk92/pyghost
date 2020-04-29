@@ -10,8 +10,9 @@ RUN apt-get install -qqy x11-apps
 
 # Dependencies
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get -y install tzdata libssl-dev openssl zlib1g-dev \
-    build-essential checkinstall wget screenfetch libffi-dev
+RUN apt-get -y install tzdata libssl-dev openssl zlib1g-dev
+RUN apt-get -y install build-essential checkinstall wget screenfetch
+RUN apt-get -y install libffi-dev libsqlite3-dev
 
 # Get Python 3.7.5
 WORKDIR /usr/src
