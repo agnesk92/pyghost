@@ -15,11 +15,19 @@ before_install:
   - docker run -ti pyghost:v1.0 screenfetch
   - sudo apt-get install screenfetch
   - screenfetch
+  - pip install coverage
 
 jobs:
   include:
     - name: Run Python Tests
       script: docker run -ti pyghost:v1.0 pytest
+
+    - name: CodeCov Metrics
+      install: pip install pytest-cov
+      script: py.test --cov-report=xml --cov=myproj tests/
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 cache:
   directories:
