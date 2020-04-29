@@ -21,7 +21,7 @@ jobs:
       script: docker run -ti pyghost:v1.0 pytest
 
     - name: CodeCov Metrics
-      script: docker run -ti pyghost:v1.0 pytest --cov-report=xml --cov=myproj tests/
+      script: docker run -ti pyghost:v1.0 pytest --cov-report=xml --cov=pyGhost tests/
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
