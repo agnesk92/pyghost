@@ -50,3 +50,7 @@ docker run --env DISPLAY=unix$DISPLAY --volume $XAUTH:/root/.Xauthority --volume
 
 docker exec -it pyghost-ubuntu:v1.0 bash
 ```
+
+## License
+
+The code is available under the [Apache License](LICENSE).
