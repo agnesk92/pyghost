@@ -17,10 +17,7 @@ before_install:
 
 jobs:
   include:
-    - name: Run Python Tests
-      script: docker run -ti pyghost:v1.0 pytest
-
-    - name: CodeCov Metrics
+    - name: PyTest With Coverage
       script: docker run -ti pyghost:v1.0 pytest --cov-report=xml --cov=pyGhost tests/
 
 after_success:
