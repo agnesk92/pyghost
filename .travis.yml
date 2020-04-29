@@ -22,6 +22,7 @@ jobs:
 #      script: docker run -ti pyghost:v1.0 pytest --cov-report=xml --cov=./ tests/
 
 after_success:
+  - pip install codecov
   - codecov
 #  - docker run -ti pyghost:v1.0 codecov
 #  - docker run -ti pyghost:v1.0 bash <(curl -s https://codecov.io/bash)
