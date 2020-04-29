@@ -4,11 +4,6 @@ import numpy as np
 from pyGhost.player import Player
 from pyGhost.room import Room
 
-# Objects
-pink_castle = pygame.image.load('pyGhost/icons/castle_pink.png')
-grey_castle = pygame.image.load('pyGhost/icons/castle_grey.png')
-castle = pygame.image.load('pyGhost/icons/castle.png')
-
 # Initialize and create the screen
 pygame.init()
 SCREEN = pygame.display.set_mode((1400, 800), pygame.FULLSCREEN)
@@ -46,11 +41,6 @@ class Game:
             SCREEN.fill((0, 0, 0))
 
             self.room.show_room()
-
-            # show_object(grey_castle, (100, 100))
-            # show_object(pink_castle, (820, 500))
-            # show_object(pink_castle, (920, 300))
-            # show_object(castle, (600, 90))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
