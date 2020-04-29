@@ -10,7 +10,6 @@ services:
   - docker
 
 before_install:
-  - docker load -i docker_images/images.tar || true
   - docker build . -t pyghost:v1.0
   - docker run -ti pyghost:v1.0 screenfetch
   - sudo apt-get install screenfetch
@@ -18,15 +17,13 @@ before_install:
 
 jobs:
   include:
-    - name: Run Python Tests
-      script: docker run -ti pyghost:v1.0 pytest
+    - name: PyTest With Coverage
+      script: docker run -ti pyghost:v1.0 pytest --cov-report=xml --cov=pyGhost tests/
 
-cache:
-  directories:
-  - docker_images
+after_success:
+#  - docker run -ti pyghost:v1.0 bash <(curl -s https://codecov.io/bash)
+  - docker run -ti pyghost:v1.0 bash -c "curl -s https://codecov.io/bash | bash"
 
-before_cache:
-- docker save -o docker_images/images.tar $(docker images -a -q)
 
 notifications:
   email: agi.uqbar@gmail.com
