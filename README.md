@@ -1,5 +1,8 @@
 [![Build Status](https://travis-ci.org/agnesk92/pyGhost.svg?branch=master)](https://travis-ci.org/agnesk92/pyGhost)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/1caa85475416eb3c7840/test_coverage)](https://codeclimate.com/github/agnesk92/pyGhost/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/1caa85475416eb3c7840/maintainability)](https://codeclimate.com/github/agnesk92/pyGhost/maintainability)
 [![codecov](https://codecov.io/gh/agnesk92/pyGhost/branch/master/graph/badge.svg)](https://codecov.io/gh/agnesk92/pyGhost)
+
 [![Python 3](https://img.shields.io/badge/python-3-blue.svg)](https://www.python.org/downloads/release/python-3/)
 [![Python 3.7.5](https://img.shields.io/badge/python-3.7.5-blue.svg)](https://www.python.org/downloads/release/python-375/)
 
