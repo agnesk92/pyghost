@@ -1,33 +1,19 @@
 FROM ubuntu:18.04
 MAINTAINER Agnes Kis
 
-# todo: build more images for subtasks
-# todo: cis: cisecurity.org/benchmark/docker/
-
 # Set up Bionic
-# todo: alpine linux instead?
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install vim -y
 
 # For x11
 RUN apt-get install -qqy x11-apps
 
-# Get Python 3.7.5
-# ref: https://askubuntu.com/questions/682869/how-do-i-install-a-different-python-version-using-apt-get
-#RUN apt-get install -y build-essential checkinstall
-#RUN apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev
-#RUN apt-get install -y tk-dev libsqlite3-dev libgdbm-dev libc6-dev libbz2-dev
-
 # Dependencies
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get -y install tzdata
-RUN apt-get install -y libssl-dev openssl zlib1g-dev
-RUN apt-get install -y build-essential checkinstall
-RUN apt-get install -y wget screenfetch
-# For _ctypes
-RUN apt-get install -y libffi-dev
+RUN apt-get -y install tzdata libssl-dev openssl zlib1g-dev \
+    build-essential checkinstall wget screenfetch libffi-dev
 
-# Get the spec. Python version
+# Get Python 3.7.5
 WORKDIR /usr/src
 RUN wget https://www.python.org/ftp/python/3.7.5/Python-3.7.5.tgz
 RUN tar xzf Python-3.7.5.tgz
