@@ -1,9 +1,14 @@
 import unittest
+import pygame
 
 
 class TestGhostGame(unittest.TestCase):
 
     def test_first_testcase(self):
+        self.assertTrue(True)
+
+
+    def test_second_testcase(self):
         self.assertTrue(True)
 
 
