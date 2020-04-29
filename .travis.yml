@@ -13,7 +13,7 @@ before_install:
   - docker build . -t pyghost:v1.0
   - docker run -ti pyghost:v1.0 screenfetch
   - mkdir shared
-  - apt-get install -y curl
+  - sudo apt-get install -y curl
 
 jobs:
   include:
