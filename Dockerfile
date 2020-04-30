@@ -35,6 +35,7 @@ COPY . /app
 RUN pip3.7 install -r requirements.txt
 
 # Change from root user for security reasons
+RUN mkdir /shared
 RUN useradd -m -U -s /bin/bash pygame
 RUN chown -R pygame /shared
 USER pygame
