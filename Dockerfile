@@ -39,6 +39,7 @@ RUN mkdir /shared
 RUN touch /shared/coverage.xml
 RUN chmod a+rw /shared /shared/*
 
-RUN useradd -m -U -s /bin/bash pygameuser
-#RUN chown -R pygameuser /shared
+
+RUN useradd -r -U -s /bin/bash pygameuser
+RUN chown -R pygameuser:pygameuser /shared /app
 USER pygameuser
