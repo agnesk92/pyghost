@@ -32,8 +32,8 @@ COPY . /app
 RUN pip3.7 install -r requirements.txt
 
 # Change from root user for security reasons
-RUN mkdir /shared
-RUN chmod -R a+rw /shared
+#RUN chmod -R a+rw /shared
 RUN useradd -r -U -s /bin/bash pygameuser
-RUN chown -R pygameuser:pygameuser /shared /app
+RUN chown -R pygameuser:pygameuser "/app"
+RUN mkdir "/shared" && chown -R pygameuser:pygameuser "/shared"
 USER pygameuser
