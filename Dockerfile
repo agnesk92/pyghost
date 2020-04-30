@@ -29,7 +29,7 @@ RUN pip3.7 install --upgrade pip && pip3.7 -V
 RUN mkdir /app
 WORKDIR /app
 COPY . /app
-RUN pip3.7 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Change from root user for security reasons
 RUN useradd -r -U -s /bin/bash pygameuser
