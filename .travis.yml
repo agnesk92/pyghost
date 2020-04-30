@@ -11,12 +11,12 @@ services:
 
 before_install:
   - sudo apt-get install -y curl
+  - mkdir shared
+  - sudo chmod -R a+rwx shared
   - docker build . -t pyghost:v1.0
   - docker run -ti pyghost:v1.0 screenfetch
-  - mkdir shared
-#  - sudo chown -R 33:33 shared
-  - sudo chmod -R a+rwx shared
   - docker run -ti pyghost:v1.0 bash -c "ls -la /shared"
+  #  - sudo chown -R 33:33 shared
 
 jobs:
   include:
