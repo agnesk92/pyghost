@@ -14,8 +14,6 @@ before_install:
   - mkdir shared
   - sudo chmod -R a+rwx shared
   - docker build . -t pyghost:v1.0
-  - docker run -ti pyghost:v1.0 screenfetch
-  - docker run -ti pyghost:v1.0 bash -c "ls -la /shared"
 
 jobs:
   include:
