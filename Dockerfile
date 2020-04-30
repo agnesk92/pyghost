@@ -20,7 +20,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
 RUN apt-get install -qqy x11-apps
 
 # Get Python 3.7
-RUN apt-get install -y python3.7 && python3.7 -V
+RUN apt-get install -y python3.7
+RUN python -V
 
 # Upgrade pip
 RUN pip3.7 install --upgrade pip && pip3.7 -V
