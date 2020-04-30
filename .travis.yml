@@ -10,16 +10,17 @@ services:
   - docker
 
 before_install:
+  - sudo apt-get install -y curl
   - docker build . -t pyghost:v1.0
   - docker run -ti pyghost:v1.0 screenfetch
   - mkdir shared
-  - sudo apt-get install -y curl
+  - sudo chown -R 33:33 shared
   - docker run -ti pyghost:v1.0 bash -c "ls -la /shared"
 
 jobs:
   include:
     - name: PyTest With Coverage
-      script: sudo docker run -ti -v "$PWD/shared:/shared" pyghost:v1.0 bash -c "ls -la /shared && pytest --cov=./ --cov-report=xml:/shared/coverage.xml"
+      script: docker run -ti -v "$PWD/shared:/shared" pyghost:v1.0 bash -c "ls -la /shared && pytest --cov=./ --cov-report=xml:/shared/coverage.xml"
 #      script: docker run -ti -v "$PWD/shared:/shared" pyghost:v1.0 bash -c "pytest --cov=./ && mv coverage.xml /shared && ls /shared"
 
 after_success:
