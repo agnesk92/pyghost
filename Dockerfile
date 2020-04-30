@@ -36,7 +36,7 @@ RUN pip3.7 install -r requirements.txt
 
 # Change from root user for security reasons
 RUN mkdir /shared
-RUN touch /shared/coverage.xml
+#RUN touch /shared/coverage.xml
 RUN chmod a+rw /shared /shared/*
 
 RUN useradd -r -U -s /bin/bash pygameuser
