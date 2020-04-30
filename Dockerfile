@@ -11,6 +11,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     build-essential \
     checkinstall \
     libffi-dev \
+    libsqlite3-dev \
     screenfetch \
     wget \
     vim \
