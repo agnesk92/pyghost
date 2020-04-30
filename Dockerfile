@@ -31,5 +31,5 @@ RUN python3.7 -m pip install -r requirements.txt
 
 # Change from root user for security reasons
 RUN useradd -r -U -s /bin/bash pygameuser
-RUN mkdir /shared && chown -R pygameuser:pygameuser /shared /app
+#RUN mkdir /shared && chown -R pygameuser:pygameuser /shared /app
 USER pygameuser
