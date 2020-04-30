@@ -18,7 +18,8 @@ before_install:
 jobs:
   include:
     - name: PyTest With Coverage
-      script: docker run -ti -v "$PWD/shared:/shared" pyghost:v1.0 bash -c "pytest --cov=./ && mv coverage.xml /shared && ls /shared"
+      script: docker run -ti -v "$PWD/shared:/shared" pyghost:v1.0 bash -c "pytest --cov=./ --cov-report=xml:/shared/coverage.xml"
+#      script: docker run -ti -v "$PWD/shared:/shared" pyghost:v1.0 bash -c "pytest --cov=./ && mv coverage.xml /shared && ls /shared"
 
 after_success:
   - curl -s https://codecov.io/bash | bash
