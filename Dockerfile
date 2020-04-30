@@ -1,4 +1,4 @@
-FROM agnesk92/pygame-base:v2.0
+FROM agnesk92/pygame-base:v2.1
 MAINTAINER Agnes Kis
 
 RUN mkdir /app
