@@ -2,17 +2,23 @@ FROM ubuntu:18.04
 MAINTAINER Agnes Kis
 
 # Set up Bionic
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install vim -y
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+    tzdata \
+    libssl-dev \
+    openssl \
+    zlib1g-dev \
+    build-essential \
+    checkinstall \
+    libffi-dev \
+    libsqlite3-dev \
+    screenfetch \
+    wget \
+    vim \
+    curl
 
 # For x11
 RUN apt-get install -qqy x11-apps
-
-# Dependencies
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get -y install tzdata libssl-dev openssl zlib1g-dev
-RUN apt-get -y install build-essential checkinstall wget screenfetch
-RUN apt-get -y install libffi-dev curl libsqlite3-dev
 
 # Get Python 3.7.5
 WORKDIR /usr/src
@@ -35,5 +41,6 @@ COPY . /app
 RUN pip3.7 install -r requirements.txt
 
 # Change from root user for security reasons
-RUN useradd -m -U -s /bin/bash pygame
-USER pygame
+RUN useradd -r -U -s /bin/bash pygameuser
+RUN mkdir /shared && chown -R pygameuser:pygameuser /shared /app
+USER pygameuser

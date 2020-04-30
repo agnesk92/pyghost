@@ -51,6 +51,10 @@ docker run --env DISPLAY=unix$DISPLAY --volume $XAUTH:/root/.Xauthority --volume
 docker exec -it pyghost-ubuntu:v1.0 bash
 ```
 
+## Code Metrics
+
+[![codecov](https://codecov.io/gh/agnesk92/pyGhost/graphs/icicle.svg)](https://codecov.io/gh/agnesk92/pyGhost)
+
 ## License
 
 The code is available under the [Apache License](LICENSE).
