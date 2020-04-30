@@ -12,18 +12,17 @@ services:
 before_install:
   - docker build . -t pyghost:v1.0
   - docker run -ti pyghost:v1.0 screenfetch
-  - sudo apt-get install screenfetch
-  - screenfetch
+  - mkdir shared
+  - sudo apt-get install -y curl
 
 jobs:
   include:
     - name: PyTest With Coverage
-      script: docker run -ti pyghost:v1.0 pytest --cov-report=xml --cov=pyGhost tests/
+      script: docker run -ti -v "$PWD/shared:/shared" pyghost:v1.0 bash -c "pytest --cov=./ && mv coverage.xml /shared && ls /shared"
 
 after_success:
-#  - docker run -ti pyghost:v1.0 bash <(curl -s https://codecov.io/bash)
-  - docker run -ti pyghost:v1.0 bash -c "curl -s https://codecov.io/bash | bash"
+  - curl -s https://codecov.io/bash | bash
 
 
-notifications:
-  email: agi.uqbar@gmail.com
+#notifications:
+#  email: agi.uqbar@gmail.com
