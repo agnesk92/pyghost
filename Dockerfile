@@ -35,5 +35,5 @@ COPY . /app
 RUN pip3.7 install -r requirements.txt
 
 # Change from root user for security reasons
-#RUN useradd -m -U -s /bin/bash pygame
-#USER pygame
+RUN useradd -m -U -s /bin/bash pygame
+USER pygame
