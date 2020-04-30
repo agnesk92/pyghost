@@ -53,10 +53,6 @@ docker exec -it pyghost-ubuntu:v1.0 bash
 
 ## Code Metrics
 
-[![codecov](https://codecov.io/gh/agnesk92/pyGhost/graphs/tree.svg)](https://codecov.io/gh/agnesk92/pyGhost)
-
-[![codecov](https://codecov.io/gh/agnesk92/pyGhost/graphs/sunburst.svg)](https://codecov.io/gh/agnesk92/pyGhost)
-
 [![codecov](https://codecov.io/gh/agnesk92/pyGhost/graphs/icicle.svg)](https://codecov.io/gh/agnesk92/pyGhost)
 
 ## License
