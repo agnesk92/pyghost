@@ -4,9 +4,17 @@ MAINTAINER Agnes Kis
 # Set up Bionic
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
-    vim tzdata libssl-dev openssl zlib1g-dev \
-    build-essential checkinstall wget screenfetch \
-    libffi-dev curl libsqlite3-dev
+    tzdata \
+    libssl-dev \
+    openssl \
+    zlib1g-dev \
+    build-essential \
+    checkinstall \
+    libffi-dev \
+    screenfetch \
+    wget \
+    vim \
+    curl
 
 # For x11
 RUN apt-get install -qqy x11-apps
