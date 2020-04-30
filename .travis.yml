@@ -16,17 +16,14 @@ before_install:
   - docker build . -t pyghost:v1.0
   - docker run -ti pyghost:v1.0 screenfetch
   - docker run -ti pyghost:v1.0 bash -c "ls -la /shared"
-  #  - sudo chown -R 33:33 shared
 
 jobs:
   include:
     - name: PyTest With Coverage
-      script: docker run -ti -v "$PWD/shared:/shared" pyghost:v1.0 bash -c "ls -la /shared && pytest --cov=./ --cov-report=xml:/shared/coverage.xml"
-#      script: docker run -ti -v "$PWD/shared:/shared" pyghost:v1.0 bash -c "pytest --cov=./ && mv coverage.xml /shared && ls /shared"
+      script: docker run -ti -v "$PWD/shared:/shared" pyghost:v1.0 bash -c "pytest --cov=./ --cov-report=xml:/shared/coverage.xml"
 
 after_success:
   - curl -s https://codecov.io/bash | bash
-
 
 #notifications:
 #  email: agi.uqbar@gmail.com
