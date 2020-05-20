@@ -1,0 +1,12 @@
+---
+version: "2"
+plugins:
+  pep8:
+    enabled: true
+  pylint:
+    enabled: true
+  markdownlint:
+    enabled: true
+    checks:
+      MD002: # "First header should be a h1 header"
+        enabled: false
