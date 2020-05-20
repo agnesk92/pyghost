@@ -1,5 +1,7 @@
 ---
-version: "2"
+engines:
+  pylint:
+    enabled: true
 plugins:
   bandit:
     enabled: true
