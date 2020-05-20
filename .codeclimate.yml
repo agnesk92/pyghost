@@ -3,6 +3,9 @@ version: "2"
 plugins:
   pep8:
     enabled: true
+  plugins:
+    bandit:
+      enabled: true
   pylint:
     enabled: true
   markdownlint:
