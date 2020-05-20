@@ -3,6 +3,10 @@ python: "3.7.5"
 os: linux
 dist: xenial
 
+env:
+  global:
+    - CC_TEST_REPORTER_ID=5eac50baf92d803ae86223c6f1d06612a690606c5f9b53c805312630a1a9c89f
+
 # To override installing requirements always
 install: pip --version
 
@@ -14,6 +18,9 @@ before_install:
   - mkdir shared
   - sudo chmod -R a+rwx shared
   - docker build . -t pyghost:v1.0
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 jobs:
   include:
@@ -22,6 +29,7 @@ jobs:
 
 after_success:
   - curl -s https://codecov.io/bash | bash
+  - ./cc-test-reporter after-build -t clover -p shared --exit-code $TRAVIS_TEST_RESULT
 
 #notifications:
 #  email: agi.uqbar@gmail.com
