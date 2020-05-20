@@ -11,6 +11,7 @@ WALLS = [
     Wall(332, 300),
 ]
 
+
 def get_horizontal_positions(from_coords, to_coords):
     pos = [(pos, from_coords[1]) for pos in range(from_coords[0], to_coords[0] + objects.SIZE, objects.SIZE)]
     return pos

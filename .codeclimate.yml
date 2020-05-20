@@ -10,3 +10,9 @@ plugins:
     enabled: true
   pylint:
     enabled: true
+  pep8:
+    enabled: true
+checks:
+  method-lines:
+    config:
+      threshold: 100
