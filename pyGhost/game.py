@@ -5,7 +5,6 @@ from pyGhost.player import Player
 from pyGhost.room import Room
 
 
-
 # Initialize and create the screen
 pygame.init()
 SCREEN = pygame.display.set_mode((1400, 800), pygame.FULLSCREEN)
