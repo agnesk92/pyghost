@@ -1,0 +1,12 @@
+---
+version: "2"
+plugins:
+  bandit:
+    enabled: true
+  markdownlint:
+    checks:
+      MD002:
+        enabled: false
+    enabled: true
+  pylint:
+    enabled: true

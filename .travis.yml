@@ -3,6 +3,10 @@ python: "3.7.5"
 os: linux
 dist: xenial
 
+env:
+  global:
+    - CC_TEST_REPORTER_ID=5eac50baf92d803ae86223c6f1d06612a690606c5f9b53c805312630a1a9c89f
+
 # To override installing requirements always
 install: pip --version
 
@@ -13,15 +17,17 @@ before_install:
   - sudo apt-get install -y curl
   - mkdir shared
   - sudo chmod -R a+rwx shared
+  - sudo chmod -R a+rwx .
   - docker build . -t pyghost:v1.0
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 jobs:
   include:
     - name: PyTest With Coverage
-      script: docker run -ti -v "$PWD/shared:/shared" pyghost:v1.0 bash -c "pytest --cov=./ --cov-report=xml:/shared/coverage.xml"
+      script: docker run -ti -v "$PWD/shared:/shared" -v "$PWD:/app" pyghost:v1.0 bash -c "pytest --cov=./ --cov-report=xml:/shared/coverage.xml"
 
 after_success:
   - curl -s https://codecov.io/bash | bash
-
-#notifications:
-#  email: agi.uqbar@gmail.com
+  - ./cc-test-reporter after-build -t clover -p shared/coverage.xml --exit-code $TRAVIS_TEST_RESULT

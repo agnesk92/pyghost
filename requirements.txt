@@ -3,4 +3,6 @@ pytest
 pygame
 numpy
 codecov
+coverage
 pytest-cov
+pylint

@@ -35,8 +35,8 @@ docker build . -t pyghost-ubuntu:v1.0
 docker build --no-cache . -t pyghost-ubuntu:v1.0
 
 # Depending on the OS you are using sh or bash ..
-docker run -it pyghost-ubuntu:v1.0 sh
-docker run -it pyghost-ubuntu:v1.0 bash
+docker run --rm -v `pwd`:/app -it pyghost-ubuntu:v1.0 sh
+docker run --rm -v `pwd`:/app -it pyghost-ubuntu:v1.0 bash
 
 # Linux setups - might need for host display access
 # If needed for display env var: ip route list | grep default
@@ -44,8 +44,8 @@ xhost +local:docker
 
 # For GUI apps, use the host's X11 server and DISPLAY
 # https://stackoverflow.com/questions/28392949/running-chromium-inside-docker-gtk-cannot-open-display-0
-docker run --env DISPLAY=unix$DISPLAY --volume $XAUTH:/root/.Xauthority --volume /tmp/.X11-unix:/tmp/.X11-unix --rm -it pyghost-ubuntu:v1.0 bash
-docker run --env DISPLAY=unix$DISPLAY --volume $XAUTH:/root/.Xauthority --volume /tmp/.X11-unix:/tmp/.X11-unix --volume `pwd`:/app --rm -it pyghost-ubuntu:v1.0 bash
+docker run --rm --env DISPLAY=unix$DISPLAY -v $XAUTH:/root/.Xauthority -v /tmp/.X11-unix:/tmp/.X11-unix -it pyghost-ubuntu:v1.0 bash
+docker run --rm --env DISPLAY=unix$DISPLAY -v $XAUTH:/root/.Xauthority -v /tmp/.X11-unix:/tmp/.X11-unix -v `pwd`:/app -it pyghost-ubuntu:v1.0 bash
 # docker exec -it pyghost-ubuntu:v1.0 bash
 
 python run_game.py
