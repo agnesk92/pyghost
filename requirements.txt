@@ -5,3 +5,4 @@ numpy
 codecov
 coverage
 pytest-cov
+pylint
