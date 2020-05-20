@@ -31,4 +31,4 @@ jobs:
 after_success:
   - mkdir build build/logs && cp shared/coverage.xml build/logs/coverage.xml
   - curl -s https://codecov.io/bash | bash
-  - ./cc-test-reporter after-build -t coverage.py --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build -t coverage.py -p shared --exit-code $TRAVIS_TEST_RESULT
