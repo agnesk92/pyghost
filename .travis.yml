@@ -17,6 +17,7 @@ before_install:
   - sudo apt-get install -y curl
   - mkdir shared
   - sudo chmod -R a+rwx shared
+  - sudo chmod -R a+rwx .
   - docker build . -t pyghost:v1.0
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
