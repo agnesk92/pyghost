@@ -3,4 +3,4 @@ def new_function_wo_docstring():
 
 
 def another_function_wo_docstring():
-    a = 1
+    pass
