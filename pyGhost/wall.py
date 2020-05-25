@@ -6,6 +6,8 @@ class Wall(pygame.sprite.Sprite):
     Walls can't be passed by player.
     """
 
+
+
     def __init__(self, x, y):
         # Init
         pygame.sprite.Sprite.__init__(self)
@@ -16,7 +18,6 @@ class Wall(pygame.sprite.Sprite):
         # self.figure = pygame.image.load('pyGhost/icons/wall.png')
         self.figure = pygame.image.load('pyGhost/icons/wall.png')
         # self.rect = self.figure.get_rect()
-
     @property
     def figure_rect(self):
         return self.figure.get_rect(topleft = (self.x, self.y))
