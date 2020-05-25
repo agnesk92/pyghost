@@ -11,11 +11,11 @@ plugins:
   pylint:
     enabled: true
     issue_override:
-      severity: info
+      severity: major
   pep8:
     enabled: true
     issue_override:
-      severity: info
+      severity: major
 checks:
   method-lines:
     config:
