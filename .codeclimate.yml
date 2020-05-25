@@ -10,8 +10,12 @@ plugins:
     enabled: true
   pylint:
     enabled: true
+    issue_override:
+      severity: info
   pep8:
     enabled: true
+    issue_override:
+      severity: info
 checks:
   method-lines:
     config:
