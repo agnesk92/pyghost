@@ -18,7 +18,7 @@ class Player:
 
     @property
     def figure_rect(self):
-        return self.figure.get_rect(topleft = self.position)
+        return self.figure.get_rect(topleft=self.position)
 
 
 
