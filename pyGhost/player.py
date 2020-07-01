@@ -20,8 +20,13 @@ class Player:
     def figure_rect(self):
         return self.figure.get_rect(topleft=self.position)
 
+
+
+
     @position.setter
     def position(self, new_pos):
+
+
         self._postion_x, self._postion_y = new_pos
 
     def move(self, move_x, move_y, walls):
