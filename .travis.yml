@@ -5,7 +5,7 @@ dist: xenial
 
 env:
   global:
-    - CC_TEST_REPORTER_ID=5eac50baf92d803ae86223c6f1d06612a690606c5f9b53c805312630a1a9c89f
+    - CC_TEST_REPORTER_ID=8e533696ae63b5aa8d4f7923f1dae46841573f8abe00171274820a5fde2ee35b
 
 # To override installing requirements always
 install: pip --version
