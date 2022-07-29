@@ -6,3 +6,4 @@ codecov
 coverage
 pytest-cov
 pylint
+coveralls
